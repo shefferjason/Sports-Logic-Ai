@@ -5,8 +5,8 @@ import { StatusBar } from 'expo-status-bar';
 
 // Import Screens
 import HomeScreen from './Screens/HomeScreen';
-import NFLScreen from './Screens/NFLScreen';
-import NBAScreen from './Screens/NBAScreen';
+import NflScreen from './Screens/NflScreen';
+import NbaScreen from './Screens/NbaScreen';
 import AIScreen from './Screens/AIScreen';
 import SettingsScreen from './Screens/SettingsScreen';
 
@@ -35,13 +35,13 @@ export default function App() {
           options={{ title: 'Sports Logic AI' }}
         />
         <Tab.Screen 
-          name="NFL" 
-          component={NFLScreen}
+          name="Nfl" 
+          component={NflScreen}
           options={{ title: 'NFL Predictions' }}
         />
         <Tab.Screen 
-          name="NBA" 
-          component={NBAScreen}
+          name="Nba" 
+          component={NbaScreen}
           options={{ title: 'NBA Predictions' }}
         />
         <Tab.Screen 
