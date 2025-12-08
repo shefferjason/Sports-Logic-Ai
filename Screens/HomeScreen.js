@@ -1,117 +1,103 @@
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import React from "react";
+import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 
 export default function HomeScreen({ navigation }) {
   return (
-    <View style={styles.container}>
-
+    <ScrollView contentContainerStyle={styles.container}>
+      
       {/* HEADER */}
       <View style={styles.header}>
-        <Text style={styles.title}>Sports Logic AI</Text>
-        <Text style={styles.subtitle}>
-          AI-Powered NFL & NBA Player Stats Predictions
-        </Text>
+        <Image source={require("../assets/app_icon.png")} style={styles.appIcon} />
+        <Text style={styles.title}>SportsLogic AI</Text>
+        <Text style={styles.subtitle}>AI-Powered NFL & NBA Player Predictions</Text>
       </View>
 
       {/* NFL CARD */}
-      <TouchableOpacity
+      <TouchableOpacity 
         style={styles.card}
         onPress={() => navigation.navigate("Nfl")}
       >
-        <Ionicons name="american-football" size={32} color="#d35400" />
-        <View style={styles.cardText}>
+        <Image source={require("../assets/nfl_logo.png")} style={styles.logo} />
+        <View style={{ flex: 1 }}>
           <Text style={styles.cardTitle}>NFL Season</Text>
-          <Text style={styles.cardDescription}>
-            AI predictions for player performance and game outcomes
-          </Text>
+          <Text style={styles.cardText}>AI-powered NFL player stats & projections</Text>
         </View>
       </TouchableOpacity>
 
       {/* NBA CARD */}
-      <TouchableOpacity
+      <TouchableOpacity 
         style={styles.card}
         onPress={() => navigation.navigate("Nba")}
       >
-        <Ionicons name="basketball" size={32} color="#e67e22" />
-        <View style={styles.cardText}>
+        <Image source={require("../assets/nba_logo.png")} style={styles.logo} />
+        <View style={{ flex: 1 }}>
           <Text style={styles.cardTitle}>NBA Season</Text>
-          <Text style={styles.cardDescription}>
-            Analyze player stats and get AI-powered game predictions
-          </Text>
+          <Text style={styles.cardText}>AI-powered NBA player performance insights</Text>
         </View>
       </TouchableOpacity>
 
-      {/* AI ANALYSIS */}
+      {/* AI ANALYSIS CARD */}
       <TouchableOpacity
         style={styles.card}
-        onPress={() => navigation.navigate("AskAI")}
+        onPress={() => navigation.navigate("AskAi")}
       >
-        <Ionicons name="robot-outline" size={32} color="#3498db" />
-        <View style={styles.cardText}>
+        <Image source={require("../assets/robot_icon.png")} style={styles.logo} />
+        <View style={{ flex: 1 }}>
           <Text style={styles.cardTitle}>AI Analysis</Text>
-          <Text style={styles.cardDescription}>
-            Ask AI anything about performance, matchups, and predictions
-          </Text>
+          <Text style={styles.cardText}>Ask AI about matchups, stats & predictions</Text>
         </View>
       </TouchableOpacity>
 
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#f3f5f9",
-    paddingHorizontal: 20,
+    padding: 20,
+    backgroundColor: "#f7f9fc",
   },
-
   header: {
-    paddingTop: 60,
-    paddingBottom: 30,
     alignItems: "center",
+    marginBottom: 25,
   },
-
+  appIcon: {
+    width: 70,
+    height: 70,
+    marginBottom: 10,
+  },
   title: {
-    fontSize: 30,
+    fontSize: 28,
     fontWeight: "bold",
-    color: "#1f3c88",
+    color: "#1d5cff",
   },
-
   subtitle: {
-    marginTop: 8,
-    fontSize: 16,
-    color: "#4a4a4a",
+    fontSize: 15,
+    color: "#555",
+    marginTop: 4,
     textAlign: "center",
   },
-
   card: {
     flexDirection: "row",
     backgroundColor: "#fff",
     padding: 20,
     borderRadius: 16,
-    marginBottom: 18,
-    elevation: 3,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowRadius: 6,
-    shadowOffset: { width: 0, height: 3 },
+    marginBottom: 20,
+    alignItems: "center",
+    elevation: 4,
   },
-
-  cardText: {
-    marginLeft: 16,
-    flex: 1,
+  logo: {
+    width: 50,
+    height: 50,
+    marginRight: 15,
+    borderRadius: 8,
   },
-
   cardTitle: {
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 4,
-    color: "#1f3c88",
   },
-
-  cardDescription: {
-    fontSize: 14,
-    color: "#555",
+  cardText: {
+    color: "#666",
   },
 });
