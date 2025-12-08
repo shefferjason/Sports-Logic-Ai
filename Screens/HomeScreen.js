@@ -1,9 +1,11 @@
-import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
+
+      {/* HEADER */}
       <View style={styles.header}>
         <Text style={styles.title}>Sports Logic AI</Text>
         <Text style={styles.subtitle}>
@@ -11,84 +13,105 @@ export default function HomeScreen() {
         </Text>
       </View>
 
-      <View style={styles.card}>
-        <Text style={styles.cardTitle}>🏈 NFL Season</Text>
-        <Text style={styles.cardText}>
-          Get AI-powered predictions for NFL player performance and game outcomes
-        </Text>
-      </View>
+      {/* NFL CARD */}
+      <TouchableOpacity
+        style={styles.card}
+        onPress={() => navigation.navigate("Nfl")}
+      >
+        <Ionicons name="american-football" size={32} color="#d35400" />
+        <View style={styles.cardText}>
+          <Text style={styles.cardTitle}>NFL Season</Text>
+          <Text style={styles.cardDescription}>
+            AI predictions for player performance and game outcomes
+          </Text>
+        </View>
+      </TouchableOpacity>
 
-      <View style={styles.card}>
-        <Text style={styles.cardTitle}>🏀 NBA Season</Text>
-        <Text style={styles.cardText}>
-          Analyze NBA player stats and get game predictions powered by AI
-        </Text>
-      </View>
+      {/* NBA CARD */}
+      <TouchableOpacity
+        style={styles.card}
+        onPress={() => navigation.navigate("Nba")}
+      >
+        <Ionicons name="basketball" size={32} color="#e67e22" />
+        <View style={styles.cardText}>
+          <Text style={styles.cardTitle}>NBA Season</Text>
+          <Text style={styles.cardDescription}>
+            Analyze player stats and get AI-powered game predictions
+          </Text>
+        </View>
+      </TouchableOpacity>
 
-      <View style={styles.card}>
-        <Text style={styles.cardTitle}>🤖 AI Analysis</Text>
-        <Text style={styles.cardText}>
-          Ask our AI anything about player performance, matchups, and predictions
-        </Text>
-      </View>
+      {/* AI ANALYSIS */}
+      <TouchableOpacity
+        style={styles.card}
+        onPress={() => navigation.navigate("AskAI")}
+      >
+        <Ionicons name="robot-outline" size={32} color="#3498db" />
+        <View style={styles.cardText}>
+          <Text style={styles.cardTitle}>AI Analysis</Text>
+          <Text style={styles.cardDescription}>
+            Ask AI anything about performance, matchups, and predictions
+          </Text>
+        </View>
+      </TouchableOpacity>
 
-      <View style={styles.footer}>
-        <Text style={styles.footerText}>
-          Tap a tab below to get started!
-        </Text>
-      </View>
-    </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: "#f3f5f9",
+    paddingHorizontal: 20,
   },
+
   header: {
-    padding: 20,
-    backgroundColor: '#007AFF',
-    alignItems: 'center',
+    paddingTop: 60,
+    paddingBottom: 30,
+    alignItems: "center",
   },
+
   title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    color: '#fff',
-    marginBottom: 10,
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "#1f3c88",
   },
+
   subtitle: {
+    marginTop: 8,
     fontSize: 16,
-    color: '#fff',
-    textAlign: 'center',
+    color: "#4a4a4a",
+    textAlign: "center",
   },
+
   card: {
-    backgroundColor: '#fff',
-    margin: 15,
+    flexDirection: "row",
+    backgroundColor: "#fff",
     padding: 20,
-    borderRadius: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    borderRadius: 16,
+    marginBottom: 18,
     elevation: 3,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 3 },
   },
-  cardTitle: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
+
   cardText: {
-    fontSize: 16,
-    color: '#666',
-    lineHeight: 22,
+    marginLeft: 16,
+    flex: 1,
   },
-  footer: {
-    padding: 20,
-    alignItems: 'center',
+
+  cardTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 4,
+    color: "#1f3c88",
   },
-  footerText: {
+
+  cardDescription: {
     fontSize: 14,
-    color: '#999',
+    color: "#555",
   },
 });
