@@ -3,12 +3,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StatusBar } from 'expo-status-bar';
 
-// Import screens
-import HomeScreen from './screens/HomeScreen';
-import NFLScreen from './screens/NFLScreen';
-import NBAScreen from './screens/NBAScreen';
-import AIScreen from './screens/AIScreen';
-import SettingsScreen from './screens/SettingsScreen';
+// Import Screens
+import HomeScreen from './Screens/HomeScreen';
+import NFLScreen from './Screens/NFLScreen';
+import NBAScreen from './Screens/NBAScreen';
+import AIScreen from './Screens/AIScreen';
+import SettingsScreen from './Screens/SettingsScreen';
 
 const Tab = createBottomTabNavigator();
 
