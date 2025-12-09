@@ -6,12 +6,7 @@ import {
   StyleSheet,
   ScrollView,
 } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-import {
-  Ionicons,
-  FontAwesome5,
-  MaterialCommunityIcons,
-} from "@expo/vector-icons";
+import { Ionicons, FontAwesome5, MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -28,14 +23,11 @@ export default function HomeScreen({ navigation }) {
 
       {/* NFL CARD */}
       <TouchableOpacity onPress={() => navigation.navigate("Nfl")}>
-        <LinearGradient
-          colors={["#ff6b6b", "#d9534f"]}
-          style={styles.card}
-        >
+        <View style={[styles.card, styles.cardNfl]}>
           <FontAwesome5
             name="football-ball"
             size={45}
-            color="#ffffff"
+            color="#fff"
             style={styles.icon}
           />
           <View style={{ flex: 1 }}>
@@ -44,19 +36,16 @@ export default function HomeScreen({ navigation }) {
               AI-powered NFL player stats & projections
             </Text>
           </View>
-        </LinearGradient>
+        </View>
       </TouchableOpacity>
 
       {/* NBA CARD */}
       <TouchableOpacity onPress={() => navigation.navigate("Nba")}>
-        <LinearGradient
-          colors={["#f7b731", "#e67e22"]}
-          style={styles.card}
-        >
+        <View style={[styles.card, styles.cardNba]}>
           <MaterialCommunityIcons
             name="basketball"
             size={48}
-            color="#ffffff"
+            color="#fff"
             style={styles.icon}
           />
           <View style={{ flex: 1 }}>
@@ -65,19 +54,16 @@ export default function HomeScreen({ navigation }) {
               AI-powered NBA performance insights
             </Text>
           </View>
-        </LinearGradient>
+        </View>
       </TouchableOpacity>
 
       {/* AI ANALYSIS CARD */}
       <TouchableOpacity onPress={() => navigation.navigate("AskAi")}>
-        <LinearGradient
-          colors={["#4dabf7", "#1d5cff"]}
-          style={styles.card}
-        >
+        <View style={[styles.card, styles.cardAi]}>
           <Ionicons
             name="chatbubble-ellipses"
             size={48}
-            color="#ffffff"
+            color="#fff"
             style={styles.icon}
           />
           <View style={{ flex: 1 }}>
@@ -86,7 +72,7 @@ export default function HomeScreen({ navigation }) {
               Ask AI about matchups & predictions
             </Text>
           </View>
-        </LinearGradient>
+        </View>
       </TouchableOpacity>
 
     </ScrollView>
@@ -125,13 +111,22 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     marginBottom: 20,
     alignItems: "center",
-
-    // Soft shadow
     shadowColor: "#000",
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.15,
     shadowRadius: 8,
     shadowOffset: { width: 0, height: 4 },
-    elevation: 6,
+    elevation: 5,
+  },
+
+  // solid color variants (no external gradient lib needed)
+  cardNfl: {
+    backgroundColor: "#d9534f", // reddish
+  },
+  cardNba: {
+    backgroundColor: "#e67e22", // orange
+  },
+  cardAi: {
+    backgroundColor: "#1d5cff", // blue
   },
 
   icon: {
